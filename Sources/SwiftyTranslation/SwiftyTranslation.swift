@@ -23,7 +23,7 @@ public struct SwiftyTranslation {
     }
     
     public enum API: String {
-        case translate = "https://translation.googleapis.com/language/translate/v2?q={{TEXT}}&target={{TARGET}}"
+        case translate = "https://translation.googleapis.com/language/translate/v2?q={{TEXT}}&target={{TARGET}}&key={{KEY}}"
         case detect = "Detect"
         case supportedLangs = "Supported Languages"
     }
