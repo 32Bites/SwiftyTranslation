@@ -23,8 +23,7 @@ public struct SwiftyTranslation {
     }
     
     public enum API: String {
-        case batchTranslate = "Batch Translation"
-        case translate = "Translate"
+        case translate = "https://translation.googleapis.com/language/translate/v2?q={{TEXT}}&target={{TARGET}}"
         case detect = "Detect"
         case supportedLangs = "Supported Languages"
     }
@@ -32,5 +31,8 @@ public struct SwiftyTranslation {
     enum TranslatorEngineInitalizationError: Error {
         case apiKeyNil
         case projectIdNil
+    }
+    enum translationError: Error {
+        case responseTextNil
     }
 }
