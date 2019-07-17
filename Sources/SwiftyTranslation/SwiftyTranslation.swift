@@ -9,18 +9,16 @@ import Foundation
 
 public struct SwiftyTranslation {
     /**
-     The class for the Google Translator Engine
+     The class for the Google Translator Engine.
      */
-    public class TranslatorEngine {
-        var apiKey : String?
+    public struct TranslatorEngine {
+        var apiKey : String
         
         /**
          Creates a TranslatorEngine object for translation.
+         - parameter apiKey: API Key to connect to google cloud.
          */
-        public init(apiKey: String?) throws {
-            if apiKey == nil {
-                throw TranslatorEngineInitalizationError.apiKeyNil
-            }
+        public init(apiKey: String) {
             self.apiKey = apiKey
         }
     }
@@ -30,11 +28,8 @@ public struct SwiftyTranslation {
         case detect = "https://translation.googleapis.com/language/translate/v2/detect?q={{TEXT}}&key={{KEY}}"
         case supportedLangs = "Supported Languages"
     }
-    
-    enum TranslatorEngineInitalizationError: Error {
-        case apiKeyNil
-    }
     enum networkError: Error {
         case responseNil
+        case unknownError
     }
 }
